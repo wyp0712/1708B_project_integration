@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <input type="text" v-model="inputVal">
-    <button @click="bindTodoList">确定</button>
+    <input type="text" v-model="inputVal"> <button @click="bindTodoList">确定</button>
     <ul>
       <li v-for="(item, index) in list" :key="index">
         {{item}}
@@ -13,6 +12,7 @@
 </template>
 <script>
 // @ is an alias to /src
+import HelloWorld from '@/components/HelloWorld.vue'
 import axios from 'axios'
 import { mapState, mapActions, mapGetters } from 'vuex'
 export default {
@@ -24,12 +24,9 @@ export default {
     }
   },
   computed: {
-    // ...mapState({
-    //   list: state => state.list
-    // }),
-    ...mapState([
-      'list'
-    ]),
+    ...mapState({
+      list: state => state.list
+    }),
     ...mapGetters([
       'getTotalCount'
       ])
