@@ -2,7 +2,7 @@
   <div class="app-nav">
     <router-link to="/home/index">首页</router-link>  
     <router-link to="/home/classify">分类</router-link>  
-    <router-link to="/home/rank">排行</router-link>  
+    <router-link to="/login">登陆</router-link>  
     <router-link to="/home/bookRack">书架</router-link>  
   </div>
 </template>

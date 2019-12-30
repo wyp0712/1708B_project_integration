@@ -53,7 +53,12 @@ const routes = [
     path: '/detail',
     name: 'detail',
     component: () => import(/* webpackChunkName: "detail" */ '../views/Detail/index.vue')
-  }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import(/* webpackChunkName: "detail" */ '../views/Login/index.vue')
+  },
 ]
 
 const router = new VueRouter({
@@ -63,14 +68,17 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(to, 'top')
+  // console.log(to, 'top')
   if (to.meta.requireAuth) {
     // 判断是否登陆 token
     if (localStorage.getItem('token')) {
       next()
     } else {
       next({
-        path: '/login'
+        path: '/login',
+        query: {
+          path: to.fullPath
+        }
       })
     }
   } else {
