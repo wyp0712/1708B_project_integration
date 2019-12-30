@@ -1,7 +1,9 @@
 <template>
-  
-  
+  <div>
+    paihang
+ </div>
 </template>
+
 <script>
 export default {
 

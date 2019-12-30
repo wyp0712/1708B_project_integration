@@ -1,3 +1,9 @@
 module.exports = {
-  lintOnSave: false
+  lintOnSave: false,
+  devServer: {
+    before(app) {
+      // 注册接口
+      // fs
+    }
+  }
 }

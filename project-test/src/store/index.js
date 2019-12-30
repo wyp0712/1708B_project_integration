@@ -1,23 +1,27 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import * as type from './type'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    list: []
+    list: [],
+    bookData: []
   },
   mutations: { // 同步代码
     todoList(state, arr) {
       state.list = arr
+    },
+    initBookData(state, data) {
+      state.bookData = data; 
     }
   },
   actions: { // 异步代码  提交给mutaions
-    todoList({commit}) {
-      axios.get('/mock/data.json').then(res => {
-        commit('todoList', res.data.movie)
-      })
+    initBookData({ commit }, data) {
+      console.log(data, 'data')
+      commit('initBookData', data)
     }
   },
   getters: {
