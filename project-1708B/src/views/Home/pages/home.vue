@@ -1,5 +1,6 @@
 <template>
   <div>
+    <SwiperCom />
     <ul>
       <li v-for="(item) in bookData.ranklist0" :key="item.bookId">
         <img @click="detailEvent(item)" :src="imgUrl + item.coverUrl" alt="">
@@ -14,7 +15,11 @@
 <script>
 import axios from 'axios'
 import { mapActions, mapState } from 'vuex'
+import SwiperCom from '@/components/swiper.vue'
 export default {
+  components: {
+    SwiperCom
+  },
   data() {
     return {
       msg: true,

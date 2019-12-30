@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import * as type from './type'
+console.log(type, 'type')
 
 Vue.use(Vuex)
 
