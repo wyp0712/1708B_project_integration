@@ -71,7 +71,7 @@ router.beforeEach((to, from, next) => {
   // console.log(to, 'top')
   if (to.meta.requireAuth) {
     // 判断是否登陆 token
-    if (localStorage.getItem('token')) {
+    if (sessionStorage.getItem('token')) {
       next()
     } else {
       next({

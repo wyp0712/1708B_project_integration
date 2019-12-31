@@ -34,7 +34,7 @@ export default {
       }).then(res => {
         console.log(res, 'res')
         if (res.data.errCode === 0) {
-          localStorage.setItem('token',res.data.token)
+          sessionStorage.setItem('token',res.data.token)
           this.$router.push({
             path: this.$route.query.path || '/home/index'
           }).catch(e => {console.log(e)})

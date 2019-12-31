@@ -15,14 +15,14 @@ export default new Vuex.Store({
     todoList(state, arr) {
       state.list = arr
     },
-    initBookData(state, data) {
+    [type.INIT_BOOK_DATA](state, data) {
       state.bookData = data; 
     }
   },
   actions: { // 异步代码  提交给mutaions
     initBookData({ commit }, data) {
       console.log(data, 'data')
-      commit('initBookData', data)
+      commit(type.INIT_BOOK_DATA, data)
     }
   },
   getters: {
