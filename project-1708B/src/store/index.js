@@ -2,18 +2,22 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import * as type from './type'
-console.log(type, 'type')
+// console.log(type, 'type')
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     list: [],
-    bookData: []
+    bookData: [],
+    show: true
   },
   mutations: { // 同步代码
     todoList(state, arr) {
       state.list = arr
+    },
+    showEvent(state, flag) {
+      state.show = flag;
     },
     [type.INIT_BOOK_DATA](state, data) {
       state.bookData = data; 
