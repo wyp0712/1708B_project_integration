@@ -10,13 +10,14 @@ export default new Vuex.Store({
   state: {
     list: [],
     bookData: [],
-    show: true
+    show: false
   },
   mutations: { // 同步代码
     todoList(state, arr) {
       state.list = arr
     },
     showEvent(state, flag) {
+      console.log(flag, 'flag')
       state.show = flag;
     },
     [type.INIT_BOOK_DATA](state, data) {
@@ -25,7 +26,7 @@ export default new Vuex.Store({
   },
   actions: { // 异步代码  提交给mutaions
     initBookData({ commit }, data) {
-      console.log(data, 'data')
+      // console.log(data, 'data')
       commit(type.INIT_BOOK_DATA, data)
     }
   },

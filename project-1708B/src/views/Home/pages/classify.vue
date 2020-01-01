@@ -5,7 +5,6 @@
       :key="index"
       @click="tabEvent(index)"
     ></h1>
-
     <van-popup
       v-model="show"
       position="bottom"
@@ -41,7 +40,7 @@ export default {
       'showEvent'
     ]),
     close() {
-       this.showEvent(false)
+      this.showEvent(false)
     }
   },
 }
