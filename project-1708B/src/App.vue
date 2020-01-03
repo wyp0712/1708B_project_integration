@@ -2,15 +2,21 @@
   <div id="app">
       <router-view/>
       <NavBar />
-    <button @click="showDialog">确定</button>
-   <van-popup v-model="show">正在加载页面</van-popup>
+       <van-popup v-model="show">正在加载页面</van-popup>
+
   </div>
 </template>
 <script>
+/*
+ v-model 双向数据绑定
+    get
+    set
+  计算属性中,默认只有获取   
+*/
 import axios from 'axios'
 import NavBar from '@/components/navBar.vue'
 import { mapState,mapActions } from 'vuex'
-import { getPageData, getPostTest } from '@/api/api.js'
+import { getTestData, getPostTest } from '@/api/api.js'
 export default {
   name: 'app',
   data() {
@@ -31,33 +37,17 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
-      'showEvent'
-    ]),
-    showDialog() {
-      getPageData()
-    }
+
   },
   components: {
     NavBar
   },
   created() {
-    // getPageData()
-    // console.log(getPostTest, 'getPostTest')
-    //  getPostTest({
-    //    user: 'devin',
-    //    name: 'hello world'
-    //  }).then(res => {
-    //    console.log(res, 'res')
-    //  })
-
-     
-
-    // getPageData({
-    //   page:1,
-    //   size:5
-    // })
-    // axios.get('/api/page?page=1&size=5').then(res => {
+    // 测试接口
+    // getTestData({
+    //   page: 1,
+    //   size: 5
+    // }).then(res => {
     //   console.log(res, 'res')
     // })
   },

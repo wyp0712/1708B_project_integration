@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import * as type from './type'
-// console.log(type, 'type')
 
 Vue.use(Vuex)
 
@@ -16,8 +15,8 @@ export default new Vuex.Store({
     todoList(state, arr) {
       state.list = arr
     },
-    showEvent(state, flag) {
-      console.log(flag, 'flag')
+    // 控制弹出框
+    [type.SHOW_DIALOG](state, flag) {
       state.show = flag;
     },
     [type.INIT_BOOK_DATA](state, data) {
@@ -26,8 +25,11 @@ export default new Vuex.Store({
   },
   actions: { // 异步代码  提交给mutaions
     initBookData({ commit }, data) {
-      // console.log(data, 'data')
       commit(type.INIT_BOOK_DATA, data)
+    },
+    // 弹出框显示隐藏
+    showEvent({ commit }, flag) {
+      commit(type.SHOW_DIALOG, flag)
     }
   },
   getters: {

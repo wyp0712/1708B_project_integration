@@ -2,8 +2,8 @@
 
   <div>
      
-     账号：<input  v-model="user" /> <br>
-     账号：<input  v-model="pwd" /> 
+     手机号：<input  v-model="phone" /> <br>
+     密码： <input  v-model="pwd" /> 
      <hr>
 
 
@@ -15,32 +15,27 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+import { getLoginMsg } from '@/api/api.js';
 export default {
   data() {
     return {
-      user: '',
+      phone: '',
       pwd: ''
     }
   },
   methods: {
     submitEvent() {
-      console.log(this.$route.query, 'url参数')
-      axios.get('/api/login', {
-        params: {
-          user: this.user,
-          pwd: this.pwd
-        }
+      // 登陆接口请求
+      getLoginMsg({
+        phone: this.phone,
+        password: this.pwd
       }).then(res => {
         console.log(res, 'res')
-        if (res.data.errCode === 0) {
-          sessionStorage.setItem('token',res.data.token)
-          this.$router.push({
-            path: this.$route.query.path || '/home/index'
-          }).catch(e => {console.log(e)})
-        } else {
-
-        }
+        localStorage.setItem('token', res.token)
+        this.$router.push({
+          path: '/home/index'
+        })
       })
     }
   },
