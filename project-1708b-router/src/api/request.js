@@ -1,4 +1,5 @@
 import axios from 'axios';
+import qs from 'qs';
 /**
  * @param { axios发起请求 1. 请求  2. 响应 }
  */ 

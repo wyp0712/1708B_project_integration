@@ -9,7 +9,7 @@ export default new Vuex.Store({
   state: {
     list: [],
     bookData: [],
-    show: false
+    show: true
   },
   mutations: { // 同步代码
     todoList(state, arr) {

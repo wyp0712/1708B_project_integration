@@ -57,19 +57,21 @@ export default {
   methods: {
     // 请求数据，统一参数
     getData() {
-      axios.get('http://127.0.0.1:3000/api/task/list', {
-        params: {...this.obj}
-      }).then(res => {
-        console.log(res, 'res')
-        this.dataList = res.data.data;
-      })
-      // getTabData({
-      //   url: '/api/task/list',
-      //   method: 'get',
-      //   params: { ...this.obj }
+      // axios.get('http://127.0.0.1:3000/api/task/list', {
+      //   params: {...this.obj}
       // }).then(res => {
       //   console.log(res, 'res')
+      //   this.dataList = res.data.data;
       // })
+      getTabData({
+        url: '/api/task/list',
+        method: 'get',
+        params: { ...this.obj }
+      }).then(res => {
+        console.log(res, 'res')
+        this.dataList = res.data;
+      })
+
       // getTab1({
       //   url: '/api/task/list',
       //   methods: 'get',

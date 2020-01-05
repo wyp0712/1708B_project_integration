@@ -2,8 +2,8 @@
   <div id="app">
       <router-view/>
       <NavBar />
-       <van-popup v-model="show">正在加载页面</van-popup>
-
+       <!-- <van-popup v-model="show">正在加载页面</van-popup> -->
+<van-calendar v-model="show" :show-confirm="false" />
   </div>
 </template>
 <script>
@@ -37,6 +37,9 @@ export default {
     }
   },
   methods: {
+    onConfirm() {
+
+    }
 
   },
   components: {
