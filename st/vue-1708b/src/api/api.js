@@ -1,8 +1,29 @@
 import ajax from './request';
+
 /**
  * @param { get: params }
  * @param { post: data }
  */
+
+ // 图片上传接口
+
+export const uploadImg = (data) => {
+  // upload_img
+  return ajax({
+    url: '/api/upload_img',
+    method: 'post',
+    data
+  })
+}
+
+// 表单提交接口
+export const postFormData = (data) => {
+  return ajax({
+    url: '/api/post_submit',
+    method: 'post',
+    data
+  })
+} 
 
 // post接口测试
 export const testPostList = (data) => {

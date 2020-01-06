@@ -21,21 +21,22 @@ export default {
     }
   },
   computed: {
-    ...mapState([
+    ...mapState('tab',[
       'topTabIndex'
     ])
   },
   watch: {
     topTabIndex(v) {
       this.tabIndex = 0;
+      // 更改tab下标之后，一定要提交给vuex
       this.updateBottomTabIndex(this.tabIndex)
     }
   },
   methods: {
-    ...mapMutations([
+    ...mapMutations('tab',[
       'bottomTabEvent'
     ]),
-    ...mapActions([
+    ...mapActions('tab',[
       'updateBottomTabIndex'
     ]),
     bindTabNav(index) {

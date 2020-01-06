@@ -28,13 +28,17 @@ const routes = [
     component: () => import(/* webpackChunkName: "list" */ '../views/StarbuckList/index.vue')
   },
   {
-    path: '/overtime',
-    component: () => import(/* webpackChunkName: "overtime" */ '../views/Overtime/index.vue')
+    path: '/commit/:type',
+    component: () => import(/* webpackChunkName: "overtime" */ '../views/Commit/index.vue')
   },
-  {
-    path: '/vacation',
-    component: () => import(/* webpackChunkName: "vacation" */ '../views/Vacation/index.vue')
-  }
+  // {
+  //   path: '/overtime',
+  //   component: () => import(/* webpackChunkName: "overtime" */ '../views/Overtime/index.vue')
+  // },
+  // {
+  //   path: '/vacation',
+  //   component: () => import(/* webpackChunkName: "vacation" */ '../views/Vacation/index.vue')
+  // }
 ]
 
 const router = new VueRouter({

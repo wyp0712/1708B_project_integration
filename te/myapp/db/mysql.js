@@ -20,7 +20,9 @@ function exec(sql) {
   return new Promise((resolve, reject) => {
     con.query(sql, (err, result) => {
       if (err) {
+        console.log(err, 'err')
         reject(err)
+
         return;
       }
       resolve(result)

@@ -1,12 +1,38 @@
 var express = require('express');
 var router = express.Router();
 
-const { loginFn,registerFn } = require('../controller/user')
+const { 
+  loginFn,
+  registerFn,
+  submitApplicationForm 
+} = require('../controller/user')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
+
+router.post('/upload', (req, res, next) => {
+
+})
+
+router.post('/apply/overtime', (req, res, next) => {
+   return submitApplicationForm('num2',
+   '-1',
+   '12323', 
+   '32323',
+   '12321312',
+   '加班太累',
+   "['img/1.jpg']",
+   '0',
+   'overtime').then(insertData => {
+     console.log(insertData) 
+     res.send({
+        errCode: 0,
+        insertData
+     }) 
+   })
+})
 
 router.get('/login', (req, res, next) => {
 

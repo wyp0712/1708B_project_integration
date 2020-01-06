@@ -34,15 +34,36 @@ const getList = (id, username) => {
    }
    sql += `order by id desc;`
    return exec(sql).then(result => {
+      return {
+        result
+      }
+    })
+}
+
+const submitApplicationForm = (
+  applicationNum, 
+  type,
+  startTime,
+  endTime,
+  create_at,
+  describes,
+  imgs,
+  status,
+  list_type
+  ) => {
+  let sql = `insert into mytest (applicationNum, type, startTime, endTime, create_at, describes, imgs, status, list_type) values ('${applicationNum}','${type}','${startTime}','${endTime}','${create_at}','${describes}',"${imgs}",'${status}','${list_type}');` 
+  console.log(sql, 'sql')
+  return exec(sql).then(insertData => {
+    console.log(insertData, 'insertData')
     return {
-      result
+      id: insertData.insertId
     }
   })
 }
 
-
 module.exports = {
   loginFn,
   registerFn,
-  getList
+  getList,
+  submitApplicationForm
 }

@@ -54,12 +54,41 @@ const updateInfo = (username, password, realname, id) => {
 }
 
 
+const submitFormData = ({
+  create_at,
+  startTime,
+  endTime,
+  imgs,
+  list_type,
+  status,
+  type }
+) => {
+ let sql = `insert into overtime (create_at, startTime, endTime, imgs, list_type, status, type) 
+    values (
+      '${create_at}', 
+      '${startTime}', 
+      '${endTime}',
+      "${imgs}",
+      '${list_type}',
+      ${status}, 
+      ${type});`
+  console.log(sql, 'sql----sql') 
+  return exec(sql).then(data => {
+    // console.log(data, 'data---控制器中')
+    return data.insertId || {}
+  })
+
+  
+}
+
+
 module.exports = {
   getList,
   getLogin,
   registerFn,
   updateInfo,
-  searchFn
+  searchFn,
+  submitFormData
 }
 
 

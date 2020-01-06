@@ -70,17 +70,17 @@ export default {
     }
   },
   computed: {
-    ...mapState([
+    ...mapState('tab',[
       'showPop',
       'topTabIndex',
       'bottomTabIndex'
     ]),
     showPop: {
       get() {
-        return this.$store.state.showPop
+        return this.$store.state.tab.showPop
       },
       set(val) {
-        this.$store.state.showPop = val;
+        this.$store.state.tab.sshowPop = val;
       }
     }
   },
@@ -114,17 +114,17 @@ export default {
         this.starBuckList = res.data;
       })
     },
-    ...mapActions([
+    ...mapActions('tab',[
       'updateShowPopStatus'
     ]),
     bindRouter(index) {
       if(index === 0) {
         this.$router.push({
-          path: '/overtime'
+          path: '/commit/overtime'
         }) 
       } else {
         this.$router.push({
-          path: '/vacation'
+          path: '/commit/vacation'
         }) 
       }
     },

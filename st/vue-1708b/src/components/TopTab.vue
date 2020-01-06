@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions, mapMutations, mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -32,8 +32,13 @@ export default {
       tabIndex: 0
     }
   },
+  computed: {
+    ...mapGetters([
+      'getTotal'
+    ])
+  },
   methods: {
-    ...mapActions([
+    ...mapActions('tab',[
       'updateTopTabIndex'
     ]),
     bindTabTop(index) {
