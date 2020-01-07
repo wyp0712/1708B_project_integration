@@ -1,22 +1,23 @@
 import React, { Component } from 'react'
 // import { getTabData } from '../../api/api'
 
+import RouterView from '@/router/index'
+import loadable from '@/utils/loadable'
+
+const HeaderBar = loadable(() => import('@/components/Header'));
+const FooterBar = loadable(() => import('@/components/Footer'));
+
 export default class componentName extends Component {
   state = {
-    obj: {
-      status: 0,
-      type: 'overtime',
-      create_at: 0,
-      pageSize: 10,
-      page: 1
-    }
   }
 
   render() {
     return (
       <div>
         home
-        <button onClick={ () => this.props.history.push('/cart') } >跳转详情页面</button>
+        <HeaderBar />
+          <RouterView routes={this.props.routes}/>
+        <FooterBar />
       </div>
     )
   }

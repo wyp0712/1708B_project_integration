@@ -12,6 +12,13 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+router.get('/get_test',(req, res, next) => {
+  res.send({
+    errCode: 0,
+    msg: '访问成功'
+  })
+})
+
 router.post('/upload', (req, res, next) => {
 
 })

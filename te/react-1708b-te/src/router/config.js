@@ -1,8 +1,13 @@
-import Cart from '../views/Cart/index'
-import Home from '../views/Home/index'
+import loadable from '@/utils/loadable.js'
 
-import Carttab1 from '../views/Cart/pages/tab1'
-import Carttab2 from '../views/Cart/pages/tab2'
+// 一级
+const Home = loadable(()=>import('@/views/Home/index.js'))
+const Detail = loadable(()=>import('@/views/Detail/index.js'))
+const Login = loadable(()=>import('@/views/Login/index.js'))
+
+// 二级
+const HomeIndex = loadable(()=>import('@/views/Home/pages/Index'))
+const HomeClassify = loadable(()=>import('@/views/Home/pages/Classify'))
 
 
 const routes = [
@@ -12,25 +17,29 @@ const routes = [
   },
   {
     path: '/home',
-    components: Home
-  },
-  {
-    path: '/cart',
-    components: Cart,
+    components: Home,
     children: [
       {
-        path: '/cart',
-        redirect: '/cart/tab1'
+        path: '/home',
+        redirect: '/home/index'
       },
       {
-        path: '/cart/tab1',
-        components: Carttab1
+        path: '/home/index',
+        components: HomeIndex
       },
       {
-        path: '/cart/tab2',
-        components: Carttab2
+        path: '/home/classify',
+        components: HomeClassify
       }
     ]
+  },
+  {
+    path: '/detail',
+    components: Detail,
+  },
+  {
+    path: '/login',
+    components: Login,
   }
 ]
 

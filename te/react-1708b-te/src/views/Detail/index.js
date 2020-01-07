@@ -4,7 +4,7 @@ export default class componentName extends Component {
   render() {
     return (
       <div>
-        tan1
+        详情页面
       </div>
     )
   }

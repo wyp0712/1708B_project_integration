@@ -2,6 +2,9 @@ import axios from 'axios';
 import qs from 'qs';
 /**
  * @param { axios发起请求 1. 请求  2. 响应 }
+ *  
+ * @param { axios 拦截器： }
+ * 
  */ 
 // 创建实例 axios
 const instance = axios.create({
