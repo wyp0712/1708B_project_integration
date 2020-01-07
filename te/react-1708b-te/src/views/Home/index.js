@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import RouterView from '@/router/index'
 import { Menu, Icon } from 'antd';
-import styled from 'styled-components';
+
+import styled from 'styled-components'; // css模块化
 
 const { SubMenu } = Menu;
 

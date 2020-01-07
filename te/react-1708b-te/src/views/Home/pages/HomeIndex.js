@@ -1,17 +1,31 @@
 import React, { Component } from 'react'
 import { Pagination } from 'antd';
 
+import styled from 'styled-components'
+
+const HomeIndexBox = styled.div`
+   width: 100%;
+   height: 100vh;
+   display:flex;
+`;
+const LeftDiv = styled.div`
+    width: 100px;
+    background: #ccc;
+`;
+const RightDiv = styled.div`
+    width: calc(100% - 100px);
+    background: #eee;
+`;
+
 export default class componentName extends Component {
 
   render() {
-    // const { page,size }= 
-    return (
-     <div>
 
-        <Pagination
-          onChange={() => this.onShowSizeChange(1, 5)}
-          defaultCurrent={1} total={50} />
-     </div>
+    return (
+      <HomeIndexBox>
+        <LeftDiv></LeftDiv>
+        <RightDiv></RightDiv>
+      </HomeIndexBox>
     )
   }
 
