@@ -1,45 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-// import axios from 'axios';
-import { getLogin, testPostList } from './api/api'
+import { BrowserRouter, HashRouter, Route, Switch, Redirect, NavLink } from 'react-router-dom'
 
-class App  extends  React.Component {
-  componentDidMount() {
-    testPostList({
-      user:'devin',
-      pwd: '123'
-    }).then(res => {
-      console.log(res, 'res')
-    })
-    // axios.post('/api/post_test',{
-    //   name: 'devin',
-    //   pwd: '123'
-    // }).then(res => {
-    //   console.log(res, 'res')
-    // })
-  }
+import RouterView from '@/router/index'
+import config from '@/router/config'
+import { Button } from 'antd';
+
+class App extends React.Component {
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <Button type="primary">确定按钮</Button>
+        <BrowserRouter>
+          <RouterView routes={config} /> 
+        </BrowserRouter>
+       </div>
     );
   }
-
 }
 
 export default App;
