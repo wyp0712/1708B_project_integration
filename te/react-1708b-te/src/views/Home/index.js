@@ -1,54 +1,61 @@
 import React, { Component } from 'react'
-// import { getTabData } from '../../api/api'
 import { NavLink } from 'react-router-dom'
-
 import RouterView from '@/router/index'
-import loadable from '@/utils/loadable'
+import { Menu, Icon } from 'antd';
+import styled from 'styled-components';
 
-import { Menu, Icon, Button } from 'antd';
 const { SubMenu } = Menu;
 
-const HeaderBar = loadable(() => import('@/components/Header'));
-const FooterBar = loadable(() => import('@/components/Footer'));
+const Wrapped = styled.div`
+   width: 100vw;
+   height: 755px;
+   overflow: auto; 
+   display: flex;
+   border:1px solid #ccc;
+   .left {
+     width:275px;
+   }
+   .right {
+     width: calc(100vw - 275px);
+   }
+`;
+
 
 export default class componentName extends Component {
   state = {
     collapsed: false,
+    openKeys: ['sub1'],
   };
 
-  toggleCollapsed = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
+  rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
+
+  onOpenChange = openKeys => {
+    const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
+    if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+      this.setState({ openKeys });
+    } else {
+      this.setState({
+        openKeys: latestOpenKey ? [latestOpenKey] : [],
+      });
+    }
   };
+
   render() {
     return (
-      <div className='home-page'>
+      <Wrapped>
         <div className='left'>
-        <div style={{ width: 256 }}>
-        <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
-          <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
-        </Button>
-        
         <Menu
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
           mode="inline"
+          openKeys={this.state.openKeys}
+          onOpenChange={this.onOpenChange}
+          style={{ width: '100%',height:'100%' }}
           theme="dark"
-          inlineCollapsed={this.state.collapsed}
         >
-          <Menu.Item key="1">
+           <Menu.Item key="0">
             <Icon type="pie-chart" />
-            <span> <NavLink to='/home/index'>HomeIndex</NavLink> </span>
+            <div style={{width:'80%',display: 'inline-block',}}><NavLink style={{width:'100%',height:'100%',display:'inline-block',color:'#fff'}} to='/home/index'>首页</NavLink></div>
           </Menu.Item>
-          <Menu.Item key="2">
-            <Icon type="desktop" />
-            <span> <NavLink to='/home/classify'>HomeClassify</NavLink> </span>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <Icon type="inbox" />
-            <span>Option 3</span>
-          </Menu.Item>
+
           <SubMenu
             key="sub1"
             title={
@@ -58,11 +65,20 @@ export default class componentName extends Component {
               </span>
             }
           >
-            <Menu.Item key="5">Option 5</Menu.Item>
-            <Menu.Item key="6">Option 6</Menu.Item>
-            <Menu.Item key="7">Option 7</Menu.Item>
-            <Menu.Item key="8">Option 8</Menu.Item>
+            <Menu.Item key="1">
+              <NavLink to='/home/loans'>贷款订单</NavLink>
+            </Menu.Item>
+
+            <Menu.Item key="2">
+              <NavLink to='/home/transfer'>转单订单</NavLink>
+            </Menu.Item>
+
+            <Menu.Item key="3">
+              <NavLink to='/home/insurance'>保险订单</NavLink>
+            </Menu.Item>
+
           </SubMenu>
+
           <SubMenu
             key="sub2"
             title={
@@ -72,20 +88,33 @@ export default class componentName extends Component {
               </span>
             }
           >
-            <Menu.Item key="9">Option 9</Menu.Item>
-            <Menu.Item key="10">Option 10</Menu.Item>
+            <Menu.Item key="5">Option 5</Menu.Item>
+            <Menu.Item key="6">Option 6</Menu.Item>
             <SubMenu key="sub3" title="Submenu">
-              <Menu.Item key="11">Option 11</Menu.Item>
-              <Menu.Item key="12">Option 12</Menu.Item>
+              <Menu.Item key="7">Option 7</Menu.Item>
+              <Menu.Item key="8">Option 8</Menu.Item>
             </SubMenu>
           </SubMenu>
-        </Menu>
-      </div>
+        <SubMenu
+          key="sub4"
+          title={
+            <span>
+              <Icon type="setting" />
+              <span>Navigation Three</span>
+            </span>
+          }
+        >
+          <Menu.Item key="9">Option 9</Menu.Item>
+          <Menu.Item key="10">Option 10</Menu.Item>
+          <Menu.Item key="11">Option 11</Menu.Item>
+          <Menu.Item key="12">Option 12</Menu.Item>
+        </SubMenu>
+      </Menu>
         </div>
         <div className='right'>
           <RouterView routes={this.props.routes}/>
         </div>
-      </div>
+      </Wrapped>
     )
   }
 

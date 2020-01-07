@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, HashRouter, Route, Switch, Redirect, NavLink } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import RouterView from '@/router/index'
 import config from '@/router/config'

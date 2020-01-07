@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+*{
+  user-select: none;
+  
+}
+
 
 .home-page {
   width: 100%;
