@@ -6,8 +6,10 @@ const Detail = loadable(()=>import('@/views/Detail/index.js'))
 const Login = loadable(()=>import('@/views/Login/index.js'))
 
 // 二级
-const HomeIndex = loadable(()=>import('@/views/Home/pages/Index'))
-const HomeClassify = loadable(()=>import('@/views/Home/pages/Classify'))
+const HomeIndex = loadable(()=>import('@/views/Home/pages/HomeIndex'))
+const HomeExpenseOrder = loadable(() => import('@/views/Home/pages/ExpenseOrder'))
+const HomeLoansOrder = loadable(() => import('@/views/Home/pages/LoansOrder'))
+const HomeTransferOrder = loadable(() => import('@/views/Home/pages/TransferOrder'))
 
 
 const routes = [
@@ -28,8 +30,16 @@ const routes = [
         components: HomeIndex
       },
       {
-        path: '/home/classify',
-        components: HomeClassify
+        path: '/home/expense',
+        components: HomeExpenseOrder
+      },
+      {
+        path: '/home/loans',
+        components: HomeLoansOrder
+      },
+      {
+        path: '/home/transfer',
+        components: HomeTransferOrder
       }
     ]
   },

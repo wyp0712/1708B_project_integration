@@ -4,7 +4,7 @@ export default class componentName extends Component {
   render() {
     return (
       <div>
-        分类
+        404
       </div>
     )
   }
