@@ -4,6 +4,15 @@ import ajax from './request';
  * @param { post: data }
  */
 
+//  
+export const selectInsurance = (data) => {
+  return ajax({
+    url: '/ins/insurance',
+    method: 'get',
+    data
+  })
+}
+
 // post接口测试
 export const testPostList = (data) => {
   return ajax({

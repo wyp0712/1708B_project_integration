@@ -72,13 +72,10 @@ const submitFormData = ({
       '${list_type}',
       ${status}, 
       ${type});`
-  console.log(sql, 'sql----sql') 
   return exec(sql).then(data => {
-    // console.log(data, 'data---控制器中')
     return data.insertId || {}
   }) 
 }
-
 
 const pageSizeFn = (page, size) => {
   var page = page - 1;
@@ -87,8 +84,6 @@ const pageSizeFn = (page, size) => {
     return data || {}
   })
 }
-
-
 
 
 module.exports = {

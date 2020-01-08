@@ -2,57 +2,68 @@ import React, { Component } from 'react'
 import { Table, Input, Button, Popconfirm, Form } from 'antd';
 import styled from 'styled-components'
 import * as type from '@/api/api'
-// type.pageSizeFn
+// type.pageSizeFn  selectInsurance
 const columns = [
   {
-    title: 'ID',
+    title: '订单号',
     width: 100,
-    dataIndex: 'id',
+    dataIndex: 'order_id',
     key: 'name',
     fixed: 'left',
   },
   {
-    title: '创建时间',
+    title: '下单时间',
     width: 100,
-    dataIndex: 'create_at',
+    dataIndex: 'order_time',
     key: 'age',
     fixed: 'left',
   },
   {
-    title: '开始时间',
-    dataIndex: 'startTime',
+    title: '用户名称',
+    dataIndex: 'username',
     key: '1',
-    width: 150,
+    width: 100,
   },
   {
-    title: '结束时间',
-    dataIndex: 'endTime',
+    title: '手机号码',
+    dataIndex: 'phone',
     key: '2',
     width: 150,
   },
   {
-    title: '休假类型',
-    dataIndex: 'list_type',
+    title: '产品类型',
+    dataIndex: 'pro_type',
     key: '3',
-    width: 150,
+    width: 100,
   },
   {
-    title: '状态',
-    dataIndex: 'status',
+    title: '贷款金额',
+    dataIndex: 'loan_amount',
     key: '4',
     width: 150,
   },
   {
-    title: 'Action',
+    title: '贷款利率',
+    dataIndex: 'loan_rate',
+    key: '5',
+    width: 150,
+  },
+  {
+    title: '订单状态',
+    dataIndex: 'order_status',
+    key: '6',
+    width: 100,
+  },
+  {
+    title: '贷款利率',
     key: 'operation',
     fixed: 'right',
     width: 100,
-    render: () => <a>删除</a>,
+    render: () => <a>action</a>,
   },
 ];
 
-
-
+// axios
 
 
 
@@ -67,7 +78,7 @@ export default class componentName extends Component {
           style={{width: '100%'}} 
           columns={columns} 
           dataSource={this.state.list}
-          scroll={{ x: 1000, y: 300 }} 
+          scroll={{ x: 1000, y: 480 }} 
           onChange={ (params) => { this.bindPageSize(params) } }
         />
       </HomeIndexBox>
@@ -76,18 +87,24 @@ export default class componentName extends Component {
 
   componentDidMount() {
     const data = [];
-    let params = { current:1, pageSize: 150 };
-      type.pageSizeFn({...params}).then(res => {
+    // let params = { current:1, pageSize: 150 };
+    // selectInsurance
+    // type.selectInsurance().then(res => {
+    //   console.log(res, 'res')
+    // })
+      type.selectInsurance().then(res => {
       let arrayList = res.data;
       for (let i = 0; i < arrayList.length; i++) {
         data.push({
-          key: arrayList[i].id,
-          id: arrayList[i].id,
-          create_at: arrayList[i].create_at,
-          startTime: arrayList[i].startTime,
-          endTime: arrayList[i].endTime,
-          list_type: arrayList[i].list_type,
-          status: arrayList[i].status
+          key: arrayList[i].order_id,
+          order_id: arrayList[i].order_id,
+          order_time: arrayList[i].order_time,
+          username: arrayList[i].username,
+          phone: arrayList[i].phone,
+          pro_type: arrayList[i].pro_type,
+          loan_amount: arrayList[i].loan_amount,
+          loan_rate: arrayList[i].loan_rate,
+          order_status: arrayList[i].order_status
         });
       }
       this.setState({
