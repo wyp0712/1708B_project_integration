@@ -12,11 +12,9 @@ const searchFn = (username, realname) => {
    }
    sql += 'order by id desc;'
   return exec(sql).then(data => {
-    console.log(data, 'data-我在控制器')
     return data || {}
   })
 }
-
 
 // 业务查询 函数
 const getList = (username, password) => {
@@ -84,7 +82,6 @@ const pageSizeFn = (page, size) => {
     return data || {}
   })
 }
-
 
 module.exports = {
   getList,

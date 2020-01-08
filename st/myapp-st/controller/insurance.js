@@ -2,7 +2,6 @@ const { exec } = require('../db/index');
 const node_uid = require('node-uid')
 
 // 保险单的查询
-
 const selectInsurance = () => {
   const sql = `select * from insurance`;
   return exec(sql).then(data => {
@@ -24,7 +23,6 @@ const insertInsurance = ({
   values ('${node_uid(15)}', '${order_time}', '${username}','${phone}','${pro_type}', '${loan_amount}',  '${loan_rate}', ${order_status});`
   console.log(sql, 'sql-----sql')
   return exec(sql).then(data => {
-    console.log(data, 'data-----data')
     return data.insertId || {}
  })
 }
