@@ -1,20 +1,25 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom'
-
-import RouterView from '@/router/index'
-import config from '@/router/config'
+import { Provider} from "react-redux"
+import store from "./store/index.js"
+import { BrowserRouter} from "react-router-dom"
+import RouteIndex from "./route/index.js"
+import config from "./route/config.js"
 
 class App extends React.Component {
-
   render() {
     return (
-      <div className="App">
-        <BrowserRouter>
-          <RouterView routes={config} /> 
-        </BrowserRouter>
-       </div>
-    );
+      <React.Fragment>
+        <Provider store={store}>
+          <BrowserRouter>
+            <main className="main">
+              <RouteIndex routrs={config}/>
+            </main>
+          </BrowserRouter>
+        </Provider>
+      </React.Fragment>
+    )
   }
 }
+
 
 export default App;
