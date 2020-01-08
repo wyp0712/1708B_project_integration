@@ -54,7 +54,9 @@ export default class componentName extends Component {
         >
            <Menu.Item key="0">
             <Icon type="pie-chart" />
-            <div style={{width:'80%',display: 'inline-block',}}><NavLink style={{width:'100%',height:'100%',display:'inline-block',color:'#fff'}} to='/home/index'>首页</NavLink></div>
+            <div style={{width:'80%',display: 'inline-block',}}>
+              <NavLink style={{width:'100%',height:'100%',display:'inline-block',color:'#fff'}} to='/home/index'>首页</NavLink>
+            </div>
           </Menu.Item>
 
           <SubMenu

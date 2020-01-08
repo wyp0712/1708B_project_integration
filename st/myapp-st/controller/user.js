@@ -76,10 +76,19 @@ const submitFormData = ({
   return exec(sql).then(data => {
     // console.log(data, 'data---控制器中')
     return data.insertId || {}
-  })
-
-  
+  }) 
 }
+
+
+const pageSizeFn = (page, size) => {
+  var page = page - 1;
+  let sql = `select * from overtime limit ${page * size}, ${size};`
+  return exec(sql).then(data => {
+    return data || {}
+  })
+}
+
+
 
 
 module.exports = {
@@ -88,7 +97,8 @@ module.exports = {
   registerFn,
   updateInfo,
   searchFn,
-  submitFormData
+  submitFormData,
+  pageSizeFn
 }
 
 

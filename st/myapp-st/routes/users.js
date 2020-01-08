@@ -3,14 +3,32 @@ var router = express.Router();
 
 const { 
   getList, 
-  getLogin, registerFn, updateInfo, searchFn, 
-       submitFormData } = require('../controller/user')
+  getLogin, 
+  registerFn, 
+  updateInfo, 
+  searchFn, 
+  submitFormData,
+  pageSizeFn } = require('../controller/user')
 
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
+
+// 分页接口
+
+router.get('/page_test', async (req, res, next) => {
+   const { current, pageSize } = req.query;
+   if (current && pageSize) {
+   let data = await pageSizeFn(current, pageSize)
+    res.send({
+      errCode: 0,
+      msg: 'success',
+      data
+    })
+   }
+})
 
 router.post('/post_submit', (req, res, next) => {
   const options = req.body;

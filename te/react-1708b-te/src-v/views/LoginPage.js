@@ -1,7 +1,7 @@
 import React, { Component } from 'react'//Todo 登录页面
 import { connect} from "react-redux"
 import axios from "axios"
-import "../mock/mock.js.js.js"
+import "../mock/mock.js.js"
 
 
 class LoginPage extends Component {

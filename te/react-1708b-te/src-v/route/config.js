@@ -1,5 +1,5 @@
-import LoginPage from "../views/LoginPage.js"
-import Home from "../views/Home.js"
+import LoginPage from "../views/LoginPage.js.js"
+import Home from "../views/Home.js.js"
 
 const RouteConfig = [
   {

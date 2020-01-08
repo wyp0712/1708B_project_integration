@@ -13,6 +13,14 @@ export const testPostList = (data) => {
   })
 }
 
+export const pageSizeFn = (params) => {
+  return ajax({
+    url: '/api/page_test',
+    method: 'get',
+    params
+  })
+}
+
 // get接口测试
 export const getLogin = (params) => {
   return ajax({
