@@ -90,7 +90,7 @@ class EditableTable extends React.Component {
             <span>
               <EditableContext.Consumer>
                 {form => (
-                  <a
+                  <a href='/#'
                     onClick={() => this.save(form, record.key)}
                     style={{ marginRight: 8 }}
                   >
@@ -99,11 +99,11 @@ class EditableTable extends React.Component {
                 )}
               </EditableContext.Consumer>
               <Popconfirm title="Sure to cancel?" onConfirm={() => this.cancel(record.key)}>
-                <a>Cancel</a>
+                <span>Cancel</span>
               </Popconfirm>
             </span>
           ) : (
-            <a disabled={editingKey !== ''} onClick={() => this.edit(record.key)}>
+            <a href='/' disabled={editingKey !== ''} onClick={() => this.edit(record.key)}>
               Edit
             </a>
           );

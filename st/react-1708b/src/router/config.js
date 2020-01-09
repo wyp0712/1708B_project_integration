@@ -2,7 +2,7 @@ import loadable from '@/utils/loadable.js'
 
 // 一级
 const Home = loadable(()=>import('@/views/Home/index.js'))
-const Detail = loadable(()=>import('@/views/Detail/index.js'))
+// const Detail = loadable(()=>import('@/views/Detail/index.js'))
 const Login = loadable(()=>import('@/views/Login/index.js'))
 
 // 二级
@@ -42,10 +42,6 @@ const routes = [
         components: HomeInsuranceOrder
       }
     ]
-  },
-  {
-    path: '/detail',
-    components: Detail,
   },
   {
     path: '/login',

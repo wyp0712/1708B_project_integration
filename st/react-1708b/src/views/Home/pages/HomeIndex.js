@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Table, Input, Button, Popconfirm, Form } from 'antd';
+import { Table } from 'antd';
 import styled from 'styled-components'
 import * as type from '@/api/api'
 // type.pageSizeFn  selectInsurance
@@ -59,14 +59,9 @@ const columns = [
     key: 'operation',
     fixed: 'right',
     width: 100,
-    render: () => <a>action</a>,
+    render: () => <a href='/'>action</a>,
   },
 ];
-
-// axios
-
-
-
 export default class componentName extends Component {
   state = {
     list: []
@@ -93,23 +88,31 @@ export default class componentName extends Component {
     //   console.log(res, 'res')
     // })
       type.selectInsurance().then(res => {
-      let arrayList = res.data;
-      for (let i = 0; i < arrayList.length; i++) {
-        data.push({
-          key: arrayList[i].order_id,
-          order_id: arrayList[i].order_id,
-          order_time: arrayList[i].order_time,
-          username: arrayList[i].username,
-          phone: arrayList[i].phone,
-          pro_type: arrayList[i].pro_type,
-          loan_amount: arrayList[i].loan_amount,
-          loan_rate: arrayList[i].loan_rate,
-          order_status: arrayList[i].order_status
-        });
-      }
-      this.setState({
-        list: data
-      })
+       if (res) {
+         let arrayList = res.data || [];
+
+         if (arrayList.length) {
+          for (let i = 0; i < arrayList.length; i++) {
+            data.push({
+              key: arrayList[i].order_id,
+              order_id: arrayList[i].order_id,
+              order_time: arrayList[i].order_time,
+              username: arrayList[i].username,
+              phone: arrayList[i].phone,
+              pro_type: arrayList[i].pro_type,
+              loan_amount: arrayList[i].loan_amount,
+              loan_rate: arrayList[i].loan_rate,
+              order_status: arrayList[i].order_status
+            });
+          }
+          this.setState({
+            list: data
+          })
+        }
+       }   
+
+
+
     })
   }
 
@@ -147,11 +150,11 @@ const HomeIndexBox = styled.div`
    display:flex;
    padding:2%;
 `;
-const LeftDiv = styled.div`
-    width: 100px;
-    background: #ccc;
-`;
-const RightDiv = styled.div`
-    width: calc(100% - 100px);
-    background: #eee;
-`;
+// const LeftDiv = styled.div`
+//     width: 100px;
+//     background: #ccc;
+// `;
+// const RightDiv = styled.div`
+//     width: calc(100% - 100px);
+//     background: #eee;
+// `;
