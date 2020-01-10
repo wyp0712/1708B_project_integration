@@ -20,7 +20,7 @@ router.post('/insert', async (req, res, next) => {
   }
 });
 
-router.get('/query', async (req, res, next) => {
+router.get('/blog_list', async (req, res, next) => {
   const data = await queryContent()
   if (data) {
     res.send(new SuccessModel(data))
@@ -36,7 +36,7 @@ router.post('/update_list', async (req, res, next) => {
   res.send(new SuccessModel(data))
 });
 
-router.get('/delete', async (req, res, next) => {
+router.get('/delete_item', async (req, res, next) => {
   const { id } = req.query;
   const deleteFlag = await deleteItem(id)
   if (!deleteFlag) {

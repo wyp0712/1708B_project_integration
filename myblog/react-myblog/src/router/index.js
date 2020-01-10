@@ -4,15 +4,15 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 // component = {}
 // render=() => {}
 const RouterView = (props) => {
-  const routes = props.routes.filter(val => val.components);
+  const routesArr = props.routes.filter(val => val.component);
   const redirectArr = props.routes.filter(val => val.redirect);
-
+  console.log(routesArr, 'routesArr')
   return (
     <Switch>
       {
-        routes.map((item, index) => {
+        routesArr.map((item, index) => {
           return <Route key={index} path={item.path} render={ props => {
-             return <item.components {...props} routes={item.children}/> 
+             return <item.component {...props} routes={item.children}/> 
           }} />
         })
       }

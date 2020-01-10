@@ -28,7 +28,7 @@ export const getRegister = (data) => {
 // 查
 export const getBlogList = (params) => {
   return ajax({
-    url: '/api/blog/query',
+    url: '/api/blog/blog_list',
     method: 'get',
     data
   })
