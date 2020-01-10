@@ -7,7 +7,7 @@ import ajax from './request';
 //  
 export const selectInsurance = (data) => {
   return ajax({
-    url: '/ins/insurance',
+    url: '/api/ins/insurance',
     method: 'get',
     data
   })

@@ -12,7 +12,8 @@ export default class componentName extends Component {
       <div>
         Transfer
         <div style={{width:'100px',height:'50px'}}
-          dangerouslySetInnerHTML={{__html:this.state.img}}></div>
+          dangerouslySetInnerHTML={{__html:this.state.img}}>
+        </div>
 
         <input  value={this.state.inputValue} onChange={ (e)=> this.bindEvent(e) }/>
         <button onClick={() => this.handleBtnEvent() }>确定</button>
@@ -30,7 +31,6 @@ export default class componentName extends Component {
 
   handleBtnEvent = () => {
     console.log(this.state.inputValue === this.state.text)
-    this.getSvg()
   }
 
   getSvg() {

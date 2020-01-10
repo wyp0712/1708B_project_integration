@@ -8,9 +8,10 @@ import qs from 'qs';
  */ 
 // 创建实例 axios
 const instance = axios.create({
-  baseURL: 'http://localhost:3002',
+  baseURL: 'http://localhost:8000',
   timeout: 2000,
 })
+
 
 instance.interceptors.request.use((config) => {
   // token
