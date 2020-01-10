@@ -2,50 +2,64 @@ import ajax from './request';
 /**
  * @param { get: params }
  * @param { post: data }
+ * 
+ * @param { 登陆 params: username password  }
+ * 
  */
 
-//  
-export const selectInsurance = (data) => {
+ // 登陆
+export const getLogin = (data) => {
   return ajax({
-    url: '/api/ins/insurance',
+    url: '/api/login',
+    method: 'post',
+    data
+  })
+} 
+
+// 注册
+export const getRegister = (data) => {
+  return ajax({
+    url: '/api/register',
+    method: 'post',
+    data
+  })
+} 
+
+// 查
+export const getBlogList = (params) => {
+  return ajax({
+    url: '/api/blog/query',
     method: 'get',
     data
   })
-}
+} 
 
-// post接口测试
-export const testPostList = (data) => {
+// 增
+export const getInsertBlog = (data) => {
   return ajax({
-    url: '/api/post_test',
+    url: '/api/blog/insert',
+    method: 'post',
+    data
+  })
+} 
+
+// 改
+export const getUpdateBlog = (data) => {
+  return ajax({
+    url: '/api/blog/update_list',
     method: 'post',
     data
   })
 }
 
-export const pageSizeFn = (params) => {
+// 删
+export const getDeteleBlog = (params) => {
   return ajax({
-    url: '/api/page_test',
+    url: '/api/blog/detele',
     method: 'get',
-    params
+    data
   })
-}
-
-// get接口测试
-export const getLogin = (params) => {
-  return ajax({
-    url: '/api/login',
-    method: 'get',
-    params
-  })
-}
-
-export const getUserList = (params) => {
-  return ajax({
-    url: '/api/task/list',
-    method: 'get',
-    params
-  })
-}
+} 
 
 
 
