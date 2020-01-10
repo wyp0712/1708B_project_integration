@@ -1,11 +1,21 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter } from 'react-router-dom'
+
+import RouterView from './router/index'
+import config from './router/config'
+
+import { Provider } from 'react-redux'
+import store from './store/index'
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <BrowserRouter>
+          <RouterView routes={config} />
+        </BrowserRouter>
+      </div>
+    </Provider>
   );
 }
 
