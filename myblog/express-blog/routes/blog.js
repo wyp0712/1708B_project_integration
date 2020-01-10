@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { SuccessModel, FailModel  } = require('../model/index')
-const { insertData,queryContent, updateList } = require('../controller/blog')
+const { insertData, queryContent, updateList, deleteItem } = require('../controller/blog')
 
 /**
  * @param {id title createTime content author}
  * 
- */
+*/
 
 router.post('/insert', async (req, res, next) => {
   const contentData = {...req.body, id: Date.now(),  createTime: Date.now() }
@@ -33,10 +33,16 @@ router.post('/update_list', async (req, res, next) => {
   // 1. 读出内容 并且拼接用户插入的内容
   const data = await updateList(req.body)
   console.log(data, 'data')
-  // if (data) {
-    res.send(new SuccessModel(data))
-  // }
+  res.send(new SuccessModel(data))
 });
+
+router.get('/delete', async (req, res, next) => {
+  const { id } = req.query;
+  const deleteFlag = await deleteItem(id)
+  if (!deleteFlag) {
+    res.send(new SuccessModel('删除成功'))
+  }
+})
 
 
 
