@@ -22,7 +22,7 @@ instance.interceptors.request.use((config) => {
   config.method === 'post'
     ?config.data = qs.stringify({...config.data})
     :config.params = {...config.params}
-  // 数据响应格式：
+  // 数据响应格式
    config.headers['Content-Type'] = 'application/x-www-form-urlencoded';
   return config;
 }, (err) => {

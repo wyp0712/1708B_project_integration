@@ -26,11 +26,10 @@ export const getRegister = (data) => {
 } 
 
 // 查
-export const getBlogList = (params) => {
+export const getBlogList = () => {
   return ajax({
     url: '/api/blog/blog_list',
     method: 'get',
-    data
   })
 } 
 
@@ -55,9 +54,19 @@ export const getUpdateBlog = (data) => {
 // 删
 export const getDeteleBlog = (params) => {
   return ajax({
-    url: '/api/blog/detele',
+    url: '/api/blog/delete_item',
     method: 'get',
-    data
+    params
+  })
+}
+
+// 
+export const getDetailItem = (params) => {
+
+  return ajax({
+    url: '/api/blog/detail',
+    method: 'get',
+    params
   })
 } 
 

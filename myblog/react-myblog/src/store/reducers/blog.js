@@ -10,5 +10,9 @@ export default (state = defaultState, action) => {
     newState.blogList = action.data;
   }
 
+  if (action.type === 'delete_item') {
+    newState.blogList.splice(action.index, 1)
+  }
+
   return newState;
 }

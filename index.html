@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    
+
+   <ul>
+     <li data-index="success">1</li>
+     <li data-index="fail">1</li>
+     <li data-index="error">1</li>
+   </ul>
+
+   <script>
+     
+     const lis = document.querySelectorAll('li');
+     lis.forEach((item, index) => {
+        item.onclick = () => {
+          // console.log(item.getAttribute('data-index'))
+          console.log(item.dataset.index, 'dataset')
+        }
+     })
+
+
+   
+   </script>
+
+</body>
+</html>

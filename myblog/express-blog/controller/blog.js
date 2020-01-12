@@ -42,9 +42,16 @@ const deleteItem = async (id) => {
   return flag;
 }
 
+const detailItem = async (id) => {
+  const dataRead = await execReadFile('../mock/content.json')
+  const data = dataRead.filter((val => val.id == id));
+  return data;
+}
+
 module.exports = {
   insertData,
   queryContent,
   updateList,
-  deleteItem
+  deleteItem,
+  detailItem
 }
