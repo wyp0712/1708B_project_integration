@@ -5,7 +5,6 @@ import ajax from './request';
  */
 
 export const getTabData = ({url, method, params}) => {
-  console.log(url,method, params, '---------------')
   return ajax({
     url: url,
     method: method,
